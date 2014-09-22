@@ -69,14 +69,14 @@ android:orientation="vertical"
 	</LinearLayout>		
 
 	<LinearLayout
-		android:id="@+id/teamsBoardRow1"
+		android:id="@+id/teamsBoardRow2"
 		android:layout_width="fill_parent"
 		android:layout_height="fill_parent"
 		android:layout_weight="1"
 		android:orientation="horizontal"
 		android:gravity="center">
 		<TextView android:id="@+id/teamsIMP" 
-		android:layout_width="fill_parent" 
+		android:layout_width="0dp" 
 		android:layout_height="fill_parent" 
 		android:textSize="35sp"
 		android:textStyle="bold" 

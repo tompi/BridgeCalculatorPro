@@ -146,6 +146,7 @@ public class AuctionActivity extends Activity implements OnClickListener {
 			bids.add(null);
 		case North:
 			bids.add(null);
+		case West:
 		}
 		bids.addAll(_auction.Bids);
 

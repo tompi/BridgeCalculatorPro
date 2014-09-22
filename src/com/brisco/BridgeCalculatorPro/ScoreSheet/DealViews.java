@@ -63,6 +63,8 @@ public class DealViews extends CardViews {
 		case Clubs:
 			id = R.id.dealHandClubs;
 			break;
+		case Notrump:
+			break;
 		}
 		return (TextView) handLayout.findViewById(id);
 	}

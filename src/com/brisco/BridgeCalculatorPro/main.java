@@ -18,6 +18,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -125,6 +126,16 @@ public class main extends ListActivity implements OnClickListener {
 					"score.pbn");
 			break;
 		case 2:
+			// Share CSV
+			db = ((BridgeCalculatorProApplication) getApplication()).GetDB();
+			competition = db.GetCompetition(competitionView.ID);
+			StringBuilder csv = com.brisco.CSV.Mapping.Parser
+					.WriteCSV(competition.GetPBNGames());
+			SendFileAsMail(csv, competition.Description,
+					"Sent from Bridge Calculator Pro on my android phone.",
+					"score.csv");
+			break;
+		case 3:
 			// Delete
 			java.text.DateFormat timeFormat = DateFormat.getTimeFormat(this);
 			java.text.DateFormat dateFormat = DateFormat.getDateFormat(this);
@@ -197,8 +208,9 @@ public class main extends ListActivity implements OnClickListener {
 		}
 		boolean ready = mExternalStorageAvailable && mExternalStorageWriteable;
 		if (!ready) {
-			Toast.makeText(getBaseContext(), "Sorry, could not store file...",
-					3000);
+			Toast toast = Toast.makeText(getBaseContext(),
+					"Sorry, could not store file...", Toast.LENGTH_SHORT);
+			toast.show();
 		}
 		return ready;
 	}
@@ -299,12 +311,13 @@ public class main extends ListActivity implements OnClickListener {
 			finish();
 			return true;
 		case R.id.menu_about:
-			new AlertDialog.Builder(this).setView(GetAboutView())
+			new AlertDialog.Builder(this).setView(GetAboutView(null))
 					.setPositiveButton(getText(R.string.OK), null).show();
 			return true;
 		case R.id.menu_help:
-			Intent browserIntent = new Intent(Intent.ACTION_VIEW,
-					Uri.parse("http://www.bridgecalculator.com/documentation"));
+			Intent browserIntent = new Intent(
+					Intent.ACTION_VIEW,
+					Uri.parse("https://sites.google.com/a/bridgecalculator.com/bridge-calculator/"));
 			startActivity(browserIntent);
 			return true;
 		case R.id.menu_settings:
@@ -315,9 +328,9 @@ public class main extends ListActivity implements OnClickListener {
 		}
 	}
 
-	private View GetAboutView() {
+	private View GetAboutView(ViewGroup root) {
 		LayoutInflater vi = LayoutInflater.from(this);
-		View ret = vi.inflate(R.layout.about, null);
+		View ret = vi.inflate(R.layout.about, root);
 		return ret;
 	}
 

@@ -11,6 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -24,6 +25,8 @@ public class DB {
 	private SQLiteDatabase _db;
 
 	private static final String TABLE_NAME = "competition";
+	/* Format used in stored strings in database */
+	@SuppressLint("SimpleDateFormat")
 	private static SimpleDateFormat _dateFormat = new SimpleDateFormat(
 			"yyyy-MM-dd HH:mm:ss");
 

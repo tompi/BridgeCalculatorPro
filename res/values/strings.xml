@@ -15,6 +15,7 @@
     <string-array name="competitionListMenu">
     	<item>Email as HTML-file</item>
     	<item>Email as PBN-file</item>
+    	<item>Email as CSV-file(cards)</item>
     	<item>Delete</item>
     </string-array>
     <string-array name="boardListMenu">

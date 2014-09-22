@@ -58,30 +58,6 @@
 	android:layout_height="wrap_content" 
 		android:orientation="horizontal" 
 		android:layout_width="fill_parent">	
-	<TextView 
-		android:id="@+id/teamsrowContract"
-		android:layout_weight="1"
-		android:text="6C"
-		android:gravity="center"
-		style="@style/Text"/>
-	<TextView 
-		android:id="@+id/teamsrowDeclarer"
-		android:layout_weight="1"
-		android:text="E"
-		android:gravity="center"
-		style="@style/Text"/>
-	<TextView 
-		android:id="@+id/teamsrowResult"
-		android:layout_weight="1"
-		android:text="12"
-		android:gravity="right"
-		style="@style/Text"/>
-	<TextView 
-		android:id="@+id/teamsrowScore"
-		android:layout_weight="1"
-		android:text="980"
-		android:gravity="right"
-		style="@style/Text"/>
 </LinearLayout>
 	</LinearLayout>
 	<TextView 
